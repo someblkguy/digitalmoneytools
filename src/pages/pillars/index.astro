@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { Youtube, TrendingUp, DollarSign, Video, PenTool, Briefcase, Megaphone, Rocket, Target, Users } from 'lucide-react';
+
+const pillarPages = [
+  {
+    id: 1,
+    title: "YouTube Monetization Mastery",
+    description: "Comprehensive guide to maximizing your YouTube earnings",
+    icon: Youtube,
+    color: "text-red-600",
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 2,
+    title: "Growing Your Audience Across Platforms",
+    description: "Strategies for building a loyal following on multiple social media channels",
+    icon: TrendingUp,
+    color: "text-green-600",
+    image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 3,
+    title: "Diversifying Your Income Streams",
+    description: "Explore various monetization methods for content creators",
+    icon: DollarSign,
+    color: "text-yellow-600",
+    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 4,
+    title: "Short-Form Content Creation",
+    description: "Master the art of creating engaging short-form videos",
+    icon: Video,
+    color: "text-purple-600",
+    image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 5,
+    title: "Long-Form Content Strategy",
+    description: "Techniques for creating valuable long-form content that drives traffic and revenue",
+    icon: PenTool,
+    color: "text-blue-600",
+    image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 6,
+    title: "Content Creator's Guide to Email Marketing",
+    description: "Harness the power of email to engage your audience and drive revenue",
+    icon: Megaphone,
+    color: "text-purple-600",
+    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 7,
+    title: "Mastering Personal Branding for Creators",
+    description: "Build a strong personal brand that sets you apart in the digital landscape",
+    icon: Users,
+    color: "text-indigo-600",
+    image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 8,
+    title: "Affiliate Marketing Strategies for Content Creators",
+    description: "Maximize your earnings through effective affiliate marketing techniques",
+    icon: Target,
+    color: "text-green-600",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 9,
+    title: "Launching and Scaling Digital Products",
+    description: "Create and sell digital products that complement your content strategy",
+    icon: Rocket,
+    color: "text-orange-600",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  },
+  {
+    id: 10,
+    title: "Content Creation Workflow Optimization",
+    description: "Streamline your content creation process for maximum efficiency and quality",
+    icon: Briefcase,
+    color: "text-teal-600",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+  }
+];
+
+const crumbs = [
+  { title: "Pillars", href: "/pillars" }
+];
+---
+
+<Layout title="Pillar Content - DigitalMoneyTools">
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="text-4xl font-bold mb-8 text-center">Pillar Content</h1>
+    <p class="text-xl text-gray-600 mb-12 text-center">Dive deep into our comprehensive guides on making money online as a content creator</p>
+    <div class="grid md:grid-cols-2 gap-8">
+      {pillarPages.map((pillar) => (
+        <a href={`/pillars/${pillar.id}`} class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+          <img src={pillar.image} alt={pillar.title} class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <pillar.icon class={`w-16 h-16 ${pillar.color} mb-4`} />
+            <h2 class="text-2xl font-semibold mb-2">{pillar.title}</h2>
+            <p class="text-gray-600">{pillar.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

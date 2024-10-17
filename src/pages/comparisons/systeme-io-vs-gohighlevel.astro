@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const crumbs = [
+  { title: "Comparisons", href: "/comparisons" },
+  { title: "Systeme.io vs GoHighLevel", href: "/comparisons/systeme-io-vs-gohighlevel" }
+];
+
+const comparisonData = [
+  { feature: "All-in-one platform", systeme: "Yes", gohighlevel: "Yes" },
+  { feature: "Landing page builder", systeme: "Yes", gohighlevel: "Yes" },
+  { feature: "Email marketing", systeme: "Yes", gohighlevel: "Yes" },
+  { feature: "Automation", systeme: "Yes", gohighlevel: "Yes" },
+  { feature: "CRM", systeme: "Basic", gohighlevel: "Advanced" },
+  { feature: "Membership sites", systeme: "Yes", gohighlevel: "Yes" },
+  { feature: "Affiliate management", systeme: "Yes", gohighlevel: "Via integration" },
+  { feature: "Course creation", systeme: "Yes", gohighlevel: "Via integration" },
+  { feature: "Booking system", systeme: "No", gohighlevel: "Yes" },
+  { feature: "White-label option", systeme: "No", gohighlevel: "Yes" },
+];
+---
+
+<Layout title="Systeme.io vs GoHighLevel - Which is better for creators?" description="Compare Systeme.io and GoHighLevel to find the best all-in-one marketing platform for content creators. Features, pricing, and pros/cons analyzed.">
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="text-4xl font-bold mb-8 text-center">Systeme.io vs GoHighLevel: Which is better for creators?</h1>
+    
+    <div class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Overview</h2>
+      <p class="mb-4">Both Systeme.io and GoHighLevel are powerful all-in-one marketing platforms designed to help creators and entrepreneurs manage their online businesses. Let's compare their features, pricing, and pros/cons to determine which might be the better choice for content creators.</p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="border border-gray-300 p-2 text-left">Feature</th>
+              <th class="border border-gray-300 p-2 text-left">Systeme.io</th>
+              <th class="border border-gray-300 p-2 text-left">GoHighLevel</th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparisonData.map((item) => (
+              <tr>
+                <td class="border border-gray-300 p-2">{item.feature}</td>
+                <td class="border border-gray-300 p-2">{item.systeme}</td>
+                <td class="border border-gray-300 p-2">{item.gohighlevel}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Pricing</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Systeme.io</h3>
+          <ul class="list-disc pl-6">
+            <li>Freemium plan available</li>
+            <li>Startup: $27/month</li>
+            <li>Webinar: $47/month</li>
+            <li>Enterprise: $97/month</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">GoHighLevel</h3>
+          <ul class="list-disc pl-6">
+            <li>Agency Starter: $97/month</li>
+            <li>Agency Unlimited: $297/month</li>
+            <li>White Label: Custom pricing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Pros and Cons</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Systeme.io</h3>
+          <h4 class="font-semibold mt-2">Pros:</h4>
+          <ul class="list-disc pl-6">
+            <li>More affordable pricing options</li>
+            <li>Built-in affiliate management</li>
+            <li>Integrated course creation tools</li>
+            <li>Simpler learning curve</li>
+          </ul>
+          <h4 class="font-semibold mt-2">Cons:</h4>
+          <ul class="list-disc pl-6">
+            <li>Less advanced CRM features</li>
+            <li>No built-in booking system</li>
+            <li>Limited customization options</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">GoHighLevel</h3>
+          <h4 class="font-semibold mt-2">Pros:</h4>
+          <ul class="list-disc pl-6">
+            <li>More advanced CRM and automation capabilities</li>
+            <li>Built-in booking system</li>
+            <li>White-label options for agencies</li>
+            <li>Extensive integration options</li>
+          </ul>
+          <h4 class="font-semibold mt-2">Cons:</h4>
+          <ul class="list-disc pl-6">
+            <li>Higher pricing</li>
+            <li>Steeper learning curve</li>
+            <li>No built-in course creation tools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Conclusion</h2>
+      <p class="mb-4">Both Systeme.io and GoHighLevel offer robust features for content creators, but they cater to slightly different needs:</p>
+      <ul class="list-disc pl-6 mb-4">
+        <li><strong>Systeme.io</strong> is better suited for individual creators or small businesses looking for an affordable, all-in-one solution with built-in course creation and affiliate management tools. It's easier to use and offers a freemium plan, making it accessible for those just starting out.</li>
+        <li><strong>GoHighLevel</strong> is more appropriate for established creators, agencies, or businesses needing advanced CRM features, extensive automations, and white-label options. It offers more power and flexibility but comes with a higher price tag and a steeper learning curve.</li>
+      </ul>
+      <p>Ultimately, the choice between Systeme.io and GoHighLevel depends on your specific needs, budget, and growth stage. Consider starting with Systeme.io if you're new to online business or prioritize course creation, and look into GoHighLevel if you need more advanced features and are willing to invest in a more powerful platform.</p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-semibold mb-4">Recommendation</h2>
+      <p class="mb-4">For most content creators, especially those focusing on course creation and looking for an affordable start, <strong>Systeme.io</strong> is likely the better choice. Its integrated course creation tools and affiliate management features make it well-suited for creators looking to sell digital products and grow their audience.</p>
+      <p class="mb-4">However, if you're running an agency, need advanced CRM features, or plan to offer marketing services to clients, <strong>GoHighLevel</strong> would be the more suitable option despite its higher cost.</p>
+      <p>Remember, you can always start with Systeme.io and upgrade to GoHighLevel as your business grows and your needs become more complex.</p>
+      <p class="mt-4">
+        <a href="https://www.gohighlevel.com/?fp_ref=cash" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800">Learn more about GoHighLevel</a>
+      </p>
+    </div>
+  </div>
+</Layout>

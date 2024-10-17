@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { TrendingUp, Video, PenTool, DollarSign, Zap, BookOpen, Laptop, Podcast } from 'lucide-react';
+
+const features = [
+  { icon: TrendingUp, title: "Grow Your Audience", description: "Learn strategies to expand your reach and build a loyal following." },
+  { icon: Video, title: "Master Short-Form Content", description: "Tips and tricks for creating engaging short-form videos that convert." },
+  { icon: PenTool, title: "Long-Form Content Strategies", description: "Discover how to create valuable long-form content that drives traffic and revenue." },
+  { icon: DollarSign, title: "Monetization Techniques", description: "Explore various ways to turn your content into a sustainable income stream." },
+];
+
+const contentTypes = [
+  { icon: BookOpen, title: "Blog Posts", description: "In-depth articles on content creation and monetization", link: "/blog" },
+  { icon: Laptop, title: "Pillar Content", description: "Comprehensive guides on key topics", link: "/pillars" },
+  { icon: Zap, title: "Tool Comparisons", description: "Detailed comparisons of popular creator tools", link: "/comparisons" },
+  { icon: Podcast, title: "How-To Guides", description: "Step-by-step tutorials for content creators", link: "/how-to-guides" },
+];
+---
+
+<Layout title="DigitalMoneyTools - Monetize Your Content">
+  <div class="container mx-auto px-4 py-12">
+    <section class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to DigitalMoneyTools</h1>
+      <p class="text-xl text-gray-600 mb-8">Your ultimate resource for monetizing long-form and short-form content</p>
+      <a href="/blog" class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300">Explore Our Blog</a>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center">What We Offer</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {features.map(feature => (
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <feature.icon class="text-blue-600 w-12 h-12 mb-4 mx-auto" />
+            <h3 class="text-xl font-semibold mb-2 text-center">{feature.title}</h3>
+            <p class="text-gray-600 text-center">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center">Explore Our Content</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {contentTypes.map(content => (
+          <a href={content.link} class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center">
+            <content.icon class="text-blue-600 w-16 h-16 mb-4" />
+            <h3 class="text-2xl font-semibold mb-2 text-center">{content.title}</h3>
+            <p class="text-gray-600 text-center">{content.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="text-center">
+      <h2 class="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
+      <p class="text-xl text-gray-600 mb-8">Dive into our comprehensive guides and start monetizing your content today!</p>
+      <a href="/pillars" class="bg-green-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-green-700 transition duration-300">Explore Pillar Content</a>
+    </section>
+  </div>
+</Layout>

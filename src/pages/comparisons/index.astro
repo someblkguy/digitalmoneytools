@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const comparisonPages = [
+  { id: 1, title: "Systeme.io vs GoHighLevel", url: "/comparisons/systeme-io-vs-gohighlevel" },
+  { id: 2, title: "ConvertKit vs MailChimp", url: "/comparisons/convertkit-vs-mailchimp" },
+  { id: 3, title: "Teachable vs Thinkific", url: "/comparisons/teachable-vs-thinkific" },
+  { id: 4, title: "Canva vs Adobe Creative Suite", url: "/comparisons/canva-vs-adobe-creative-suite" },
+  { id: 5, title: "Ahrefs vs SEMrush", url: "/comparisons/ahrefs-vs-semrush" },
+  { id: 6, title: "ClickFunnels vs Kartra", url: "/comparisons/clickfunnels-vs-kartra" },
+  { id: 7, title: "Kajabi vs Podia", url: "/comparisons/kajabi-vs-podia" }
+];
+
+const crumbs = [
+  { title: "Comparisons", href: "/comparisons" }
+];
+---
+
+<Layout title="Tool Comparisons for Content Creators - DigitalMoneyTools" description="In-depth comparisons of popular tools and software for content creators. Find the best tools to enhance your content creation workflow.">
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="text-4xl font-bold mb-8 text-center">Tool Comparisons</h1>
+    <p class="text-xl text-gray-600 mb-12 text-center">Detailed comparisons of popular tools and software for content creators</p>
+    <div class="grid md:grid-cols-2 gap-8">
+      {comparisonPages.map((page) => (
+        <a href={page.url} class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <h2 class="text-2xl font-semibold mb-2">{page.title}</h2>
+          <p class="text-gray-600">Compare features, pricing, and pros/cons to find the best tool for your needs.</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

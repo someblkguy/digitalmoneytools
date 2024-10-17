@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const blogPosts = [
+  {
+    id: 1,
+    title: "5 Proven Strategies to Monetize Your YouTube Channel",
+    excerpt: "Discover effective ways to turn your YouTube content into a profitable venture, including sponsorships, merchandise, and channel memberships.",
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2024-03-01",
+    author: "Trey Scott"
+  },
+  {
+    id: 2,
+    title: "Mastering TikTok: How to Create Viral Short-Form Content",
+    excerpt: "Learn the secrets behind creating engaging TikTok videos that capture audience attention, including trending sounds, hashtags, and editing techniques.",
+    image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2024-02-25",
+    author: "Trey Scott"
+  },
+  {
+    id: 3,
+    title: "The Ultimate Guide to Affiliate Marketing for Content Creators",
+    excerpt: "Explore how to effectively incorporate affiliate marketing into your content strategy, including product selection, disclosure, and promotion techniques.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2024-02-18",
+    author: "Trey Scott"
+  },
+  {
+    id: 4,
+    title: "Building a Personal Brand: From Zero to Influencer",
+    excerpt: "A step-by-step guide to establishing and growing your personal brand online, covering topics like niche selection, content strategy, and networking.",
+    image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2024-02-10",
+    author: "Trey Scott"
+  },
+  {
+    id: 5,
+    title: "Maximizing Revenue with Digital Products and Online Courses",
+    excerpt: "Learn how to create and sell digital products that complement your content strategy, including ebooks, courses, and exclusive memberships.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2024-02-03",
+    author: "Trey Scott"
+  },
+  {
+    id: 6,
+    title: "The Power of Personal Branding for Content Creators",
+    excerpt: "Discover how to build a strong personal brand that sets you apart in the digital landscape and opens up new opportunities for growth and monetization.",
+    image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-12-23",
+    author: "Trey Scott"
+  },
+  {
+    id: 7,
+    title: "Mastering Instagram Reels: Tips for Viral Content",
+    excerpt: "Learn how to create engaging Instagram Reels that capture audience attention and boost your reach on the platform.",
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-12-15",
+    author: "Trey Scott"
+  },
+  {
+    id: 8,
+    title: "Podcasting 101: Starting Your Own Show",
+    excerpt: "A comprehensive guide to launching your own podcast, from choosing your niche to recording, editing, and promoting your episodes.",
+    image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-12-08",
+    author: "Trey Scott"
+  },
+  {
+    id: 9,
+    title: "Leveraging LinkedIn for B2B Content Marketing",
+    excerpt: "Discover strategies to use LinkedIn effectively for B2B content marketing, building your professional network, and generating leads.",
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-12-01",
+    author: "Trey Scott"
+  },
+  {
+    id: 10,
+    title: "Email Marketing Essentials for Content Creators",
+    excerpt: "Learn how to build and nurture an email list, create engaging newsletters, and use email marketing to boost your content reach and revenue.",
+    image: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2023-11-24",
+    author: "Trey Scott"
+  }
+];
+
+const crumbs = [
+  { title: "Blog", href: "/blog" }
+];
+---
+
+<Layout title="DigitalMoneyTools Blog - Expert Tips for Content Creators" description="Discover expert tips and strategies for content creators to monetize their passion. Learn about YouTube, TikTok, affiliate marketing, personal branding, and more.">
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="text-4xl font-bold mb-8 text-center">DigitalMoneyTools Blog</h1>
+    <p class="text-xl text-gray-600 mb-12 text-center">Expert tips and strategies for content creators to monetize their passion</p>
+    <div class="grid md:grid-cols-2 gap-8">
+      {blogPosts.map((post) => (
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+          <img src={post.image} alt={post.title} class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h2 class="text-xl font-semibold mb-2">{post.title}</h2>
+            <p class="text-gray-600 mb-4">{post.excerpt}</p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+              <span>{post.date}</span>
+              <span>{post.author}</span>
+            </div>
+            <a href={`/blog/${post.id}`} class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">Read More</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

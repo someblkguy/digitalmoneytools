@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const howToGuides = [
+  { id: 1, title: "How to Monetize YouTube Shorts", url: "/how-to-guides/monetize-youtube-shorts" },
+  { id: 2, title: "How to Optimize TikTok Videos for Affiliate Marketing", url: "/how-to-guides/optimize-tiktok-affiliate-marketing" },
+  { id: 3, title: "How to Create Viral Instagram Reels", url: "/how-to-guides/create-viral-instagram-reels" },
+  { id: 4, title: "How to Build a Successful Twitch Stream", url: "/how-to-guides/build-successful-twitch-stream" },
+  { id: 5, title: "How to Launch a Profitable Online Course", url: "/how-to-guides/launch-profitable-online-course" },
+  { id: 6, title: "How to Grow Your Pinterest Following for Business", url: "/how-to-guides/grow-pinterest-following-business" },
+  { id: 7, title: "How to Leverage LinkedIn for B2B Content Marketing", url: "/how-to-guides/leverage-linkedin-b2b-content-marketing" },
+  { id: 8, title: "How to Create and Monetize a Successful Podcast", url: "/how-to-guides/create-monetize-successful-podcast" },
+];
+
+const crumbs = [
+  { title: "How-To Guides", href: "/how-to-guides" }
+];
+---
+
+<Layout title="How-To Guides for Content Creators - DigitalMoneyTools" description="Step-by-step guides to help content creators monetize and optimize their content across various platforms.">
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="text-4xl font-bold mb-8 text-center">How-To Guides</h1>
+    <p class="text-xl text-gray-600 mb-12 text-center">Detailed step-by-step guides to help you succeed on various content platforms</p>
+    <div class="grid md:grid-cols-2 gap-8">
+      {howToGuides.map((guide) => (
+        <a href={guide.url} class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+          <h2 class="text-2xl font-semibold mb-2">{guide.title}</h2>
+          <p class="text-gray-600">Learn the strategies and techniques to succeed on this platform.</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>

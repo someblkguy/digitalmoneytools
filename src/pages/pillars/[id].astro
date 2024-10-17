@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const pillarPages = [
+    {
+      id: "1",
+      title: "YouTube Monetization Mastery",
+      content: `
+        <h2>Introduction to YouTube Monetization</h2>
+        <p>Learn how to effectively monetize your YouTube channel through various strategies.</p>
+        <h2>1. YouTube Partner Program</h2>
+        <p>Understand the requirements and benefits of joining the YouTube Partner Program.</p>
+        <h2>2. Ad Revenue Optimization</h2>
+        <p>Learn techniques to maximize your ad revenue through strategic video placement and optimization.</p>
+        <h2>3. Sponsorships and Brand Deals</h2>
+        <p>Discover how to attract and negotiate sponsorships for your YouTube channel.</p>
+        <h2>4. Merchandise and Product Creation</h2>
+        <p>Explore opportunities to create and sell branded merchandise to your audience.</p>
+        <h2>5. Channel Memberships and Super Chat</h2>
+        <p>Implement exclusive perks for paying subscribers and leverage Super Chat during live streams.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      icon: "Youtube",
+      color: "text-red-600"
+    },
+    {
+      id: "2",
+      title: "Growing Your Audience Across Platforms",
+      content: `
+        <h2>Multi-Platform Growth Strategies</h2>
+        <p>Discover techniques to expand your audience across various social media platforms.</p>
+        <h2>1. Content Repurposing</h2>
+        <p>Learn how to adapt your content for different platforms to maximize reach and engagement.</p>
+        <h2>2. Cross-Platform Promotion</h2>
+        <p>Implement strategies to promote your content across multiple social media channels.</p>
+        <h2>3. Collaboration and Networking</h2>
+        <p>Explore opportunities to collaborate with other creators and expand your network.</p>
+        <h2>4. Consistent Branding</h2>
+        <p>Develop a cohesive brand identity that resonates across all your social media profiles.</p>
+        <h2>5. Analytics and Optimization</h2>
+        <p>Use data-driven insights to refine your content strategy and grow your audience.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      icon: "TrendingUp",
+      color: "text-green-600"
+    },
+    {
+      id: "3",
+      title: "Diversifying Your Income Streams",
+      content: `
+        <h2>Multiple Revenue Sources for Content Creators</h2>
+        <p>Explore various monetization methods to create a stable and diverse income.</p>
+        <h2>1. Affiliate Marketing</h2>
+        <p>Learn how to effectively promote products and earn commissions through affiliate partnerships.</p>
+        <h2>2. Digital Products and Online Courses</h2>
+        <p>Develop and sell your own digital products and courses to your audience.</p>
+        <h2>3. Consulting and Coaching</h2>
+        <p>Leverage your expertise to offer one-on-one or group coaching services.</p>
+        <h2>4. Patreon and Subscription Models</h2>
+        <p>Implement a subscription-based model to offer exclusive content and perks to paying supporters.</p>
+        <h2>5. Speaking Engagements and Workshops</h2>
+        <p>Explore opportunities to monetize your knowledge through speaking gigs and workshops.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      icon: "DollarSign",
+      color: "text-yellow-600"
+    },
+    {
+      id: "4",
+      title: "Short-Form Content Creation",
+      content: `
+        <h2>Mastering the Art of Short-Form Video</h2>
+        <p>Learn techniques to create engaging and viral short-form video content.</p>
+        <h2>1. Platform-Specific Strategies</h2>
+        <p>Understand the nuances of creating content for TikTok, Instagram Reels, and YouTube Shorts.</p>
+        <h2>2. Storytelling in Short Form</h2>
+        <p>Master the art of conveying compelling narratives in brief video formats.</p>
+        <h2>3. Trending Audio and Effects</h2>
+        <p>Learn how to leverage popular sounds and visual effects to boost engagement.</p>
+        <h2>4. Hashtag Strategies</h2>
+        <p>Develop effective hashtag strategies to increase discoverability of your short-form content.</p>
+        <h2>5. Engagement and Community Building</h2>
+        <p>Foster a community around your short-form content through engagement and interaction.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      icon: "Video",
+      color: "text-purple-600"
+    },
+    {
+      id: "5",
+      title: "Long-Form Content Strategy",
+      content: `
+        <h2>Creating Valuable Long-Form Content</h2>
+        <p>Discover techniques for creating long-form content that drives traffic and revenue.</p>
+        <h2>1. SEO Optimization for Long-Form Content</h2>
+        <p>Learn how to optimize your long-form content for search engines to increase organic traffic.</p>
+        <h2>2. In-Depth Research and Analysis</h2>
+        <p>Develop skills to conduct thorough research and present comprehensive analysis in your content.</p>
+        <h2>3. Structuring Long-Form Articles</h2>
+        <p>Master the art of organizing lengthy content for improved readability and engagement.</p>
+        <h2>4. Incorporating Multimedia Elements</h2>
+        <p>Enhance your long-form content with images, videos, and interactive elements.</p>
+        <h2>5. Promotion and Distribution Strategies</h2>
+        <p>Explore effective ways to promote and distribute your long-form content for maximum reach.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      icon: "PenTool",
+      color: "text-blue-600"
+    }
+  ];
+  
+  return pillarPages.map((page) => {
+    return {
+      params: { id: page.id },
+      props: { page },
+    };
+  });
+}
+
+const { page } = Astro.props;
+
+const crumbs = [
+  { title: "Pillars", href: "/pillars" },
+  { title: page.title, href: `/pillars/${page.id}` }
+];
+---
+
+<Layout title={`${page.title} - DigitalMoneyTools`}>
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <article class="max-w-4xl mx-auto">
+      <img src={page.image} alt={page.title} class="w-full h-64 object-cover rounded-lg mb-8" />
+      <h1 class="text-4xl font-bold mb-8 text-center">{page.title}</h1>
+      <div class="prose prose-lg mx-auto" set:html={page.content} />
+    </article>
+  </div>
+</Layout>

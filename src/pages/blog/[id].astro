@@ -1,0 +1,138 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const blogPosts = [
+    {
+      id: "1",
+      title: "5 Proven Strategies to Monetize Your YouTube Channel",
+      content: `
+        <p>Discover effective ways to turn your YouTube content into a profitable venture, including sponsorships, merchandise, and channel memberships.</p>
+        <h2>1. Enable YouTube Partner Program</h2>
+        <p>Meet the requirements and apply for the YouTube Partner Program to start earning through ads.</p>
+        <h2>2. Explore Sponsorships</h2>
+        <p>Collaborate with brands for sponsored content that aligns with your audience's interests.</p>
+        <h2>3. Create and Sell Merchandise</h2>
+        <p>Design and sell branded merchandise to your loyal followers.</p>
+        <h2>4. Utilize Super Chat and Channel Memberships</h2>
+        <p>Engage your audience with live streams and offer exclusive perks to paying members.</p>
+        <h2>5. Promote Affiliate Products</h2>
+        <p>Share affiliate links for products you genuinely recommend and earn commissions.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      date: "2024-03-01",
+      author: "Trey Scott"
+    },
+    {
+      id: "2",
+      title: "Mastering TikTok: How to Create Viral Short-Form Content",
+      content: `
+        <p>Learn the secrets behind creating engaging TikTok videos that capture audience attention, including trending sounds, hashtags, and editing techniques.</p>
+        <h2>1. Stay Up-to-Date with Trends</h2>
+        <p>Regularly check the Discover page and participate in popular challenges and trends.</p>
+        <h2>2. Use Trending Sounds and Music</h2>
+        <p>Incorporate popular audio clips and songs into your videos to increase visibility.</p>
+        <h2>3. Master TikTok's Built-in Effects</h2>
+        <p>Experiment with TikTok's various filters, transitions, and effects to create visually appealing content.</p>
+        <h2>4. Craft Engaging Hooks</h2>
+        <p>Capture viewers' attention in the first few seconds with intriguing openings.</p>
+        <h2>5. Optimize Your Hashtags</h2>
+        <p>Use a mix of trending and niche-specific hashtags to improve discoverability.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      date: "2024-02-25",
+      author: "Trey Scott"
+    },
+    {
+      id: "3",
+      title: "The Ultimate Guide to Affiliate Marketing for Content Creators",
+      content: `
+        <p>Explore how to effectively incorporate affiliate marketing into your content strategy, including product selection, disclosure, and promotion techniques.</p>
+        <h2>1. Choose the Right Affiliate Programs</h2>
+        <p>Select products and services that align with your niche and audience interests.</p>
+        <h2>2. Disclose Affiliate Relationships</h2>
+        <p>Always be transparent about your affiliate partnerships to build trust with your audience.</p>
+        <h2>3. Create Valuable Content Around Affiliate Products</h2>
+        <p>Develop in-depth reviews, tutorials, and comparisons featuring your affiliate products.</p>
+        <h2>4. Leverage Multiple Platforms</h2>
+        <p>Promote affiliate products across various channels, including your blog, YouTube, and social media.</p>
+        <h2>5. Track and Analyze Performance</h2>
+        <p>Use analytics tools to monitor your affiliate marketing efforts and optimize your strategy.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      date: "2024-02-18",
+      author: "Trey Scott"
+    },
+    {
+      id: "4",
+      title: "Building a Personal Brand: From Zero to Influencer",
+      content: `
+        <p>A step-by-step guide to establishing and growing your personal brand online, covering topics like niche selection, content strategy, and networking.</p>
+        <h2>1. Define Your Niche and Unique Value Proposition</h2>
+        <p>Identify your area of expertise and what sets you apart from others in your field.</p>
+        <h2>2. Develop a Consistent Visual Identity</h2>
+        <p>Create a cohesive look across all your platforms with consistent colors, fonts, and imagery.</p>
+        <h2>3. Create High-Quality, Valuable Content</h2>
+        <p>Regularly produce content that showcases your expertise and provides value to your audience.</p>
+        <h2>4. Engage with Your Audience and Network</h2>
+        <p>Respond to comments, participate in discussions, and collaborate with other influencers in your niche.</p>
+        <h2>5. Leverage Multiple Platforms</h2>
+        <p>Establish your presence on various social media platforms and cross-promote your content.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      date: "2024-02-10",
+      author: "Trey Scott"
+    },
+    {
+      id: "5",
+      title: "Maximizing Revenue with Digital Products and Online Courses",
+      content: `
+        <p>Learn how to create and sell digital products that complement your content strategy, including ebooks, courses, and exclusive memberships.</p>
+        <h2>1. Identify Your Audience's Pain Points</h2>
+        <p>Research and understand the challenges your audience faces to create targeted digital products.</p>
+        <h2>2. Develop a Flagship Online Course</h2>
+        <p>Create a comprehensive course that showcases your expertise and provides significant value to your audience.</p>
+        <h2>3. Offer Supplementary Digital Products</h2>
+        <p>Create ebooks, templates, or worksheets that complement your main course or stand alone as valuable resources.</p>
+        <h2>4. Implement Tiered Pricing and Bundles</h2>
+        <p>Offer different pricing options and product bundles to cater to various customer needs and budgets.</p>
+        <h2>5. Leverage Email Marketing for Sales</h2>
+        <p>Build an email list and use targeted campaigns to promote your digital products and courses.</p>
+      `,
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      date: "2024-02-03",
+      author: "Trey Scott"
+    }
+  ];
+  
+  return blogPosts.map((post) => {
+    return {
+      params: { id: post.id },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+
+const crumbs = [
+  { title: "Blog", href: "/blog" },
+  { title: post.title, href: `/blog/${post.id}` }
+];
+---
+
+<Layout title={`${post.title} - DigitalMoneyTools`} description={post.content.split('.')[0]}>
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <article class="max-w-3xl mx-auto">
+      <img src={post.image} alt={post.title} class="w-full h-64 object-cover rounded-lg mb-8" />
+      <h1 class="text-4xl font-bold mb-4">{post.title}</h1>
+      <div class="flex justify-between items-center text-sm text-gray-500 mb-8">
+        <span>{post.date}</span>
+        <span>{post.author}</span>
+      </div>
+      <div class="prose prose-lg" set:html={post.content} />
+    </article>
+  </div>
+</Layout>

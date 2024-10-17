@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const howToGuides = [
+    {
+      id: "monetize-youtube-shorts",
+      title: "How to Monetize YouTube Shorts",
+      content: `
+        <h2>Introduction to YouTube Shorts Monetization</h2>
+        <p>Learn effective strategies to monetize your YouTube Shorts content.</p>
+        <!-- Add more content here -->
+      `,
+      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    },
+    // Add more how-to guides here
+  ];
+  
+  return howToGuides.map((guide) => {
+    return {
+      params: { id: guide.id },
+      props: { guide },
+    };
+  });
+}
+
+const { guide } = Astro.props;
+
+const crumbs = [
+  { title: "How-To Guides", href: "/how-to-guides" },
+  { title: guide.title, href: `/how-to-guides/${guide.id}` }
+];
+---
+
+<Layout title={`${guide.title} - DigitalMoneyTools`}>
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <article class="max-w-4xl mx-auto">
+      <img src={guide.image} alt={guide.title} class="w-full h-64 object-cover rounded-lg mb-8" />
+      <h1 class="text-4xl font-bold mb-8 text-center">{guide.title}</h1>
+      <div class="prose prose-lg mx-auto" set:html={guide.content} />
+    </article>
+  </div>
+</Layout>

@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const comparisonPages = [
+    {
+      id: "systeme-io-vs-gohighlevel",
+      title: "Systeme.io vs GoHighLevel",
+      content: `
+        <h2>Overview</h2>
+        <p>Compare Systeme.io and GoHighLevel to find the best all-in-one marketing platform for content creators.</p>
+        <!-- Add more content here -->
+      `,
+    },
+    // Add more comparison pages here
+  ];
+  
+  return comparisonPages.map((page) => {
+    return {
+      params: { id: page.id },
+      props: { page },
+    };
+  });
+}
+
+const { page } = Astro.props;
+
+const crumbs = [
+  { title: "Comparisons", href: "/comparisons" },
+  { title: page.title, href: `/comparisons/${page.id}` }
+];
+---
+
+<Layout title={`${page.title} - DigitalMoneyTools`}>
+  <div class="container mx-auto px-4 py-12">
+    <Breadcrumbs crumbs={crumbs} />
+    <article class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold mb-8 text-center">{page.title}</h1>
+      <div class="prose prose-lg mx-auto" set:html={page.content} />
+    </article>
+  </div>
+</Layout>
